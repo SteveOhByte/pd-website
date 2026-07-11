@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.tagline }}">
+
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+
+<body>
+  <header class="hero">
+    {% if page.hero_image %}
+      <img
+        class="hero-image"
+        src="{{ page.hero_image | relative_url }}"
+        alt=""
+      >
+    {% endif %}
+
+    <div class="hero-content">
+      <h1>{{ page.title }}</h1>
+      <p class="tagline">{{ page.tagline }}</p>
+
+      {% if page.button_label and page.button_url %}
+        <a class="button" href="{{ page.button_url }}">
+          {{ page.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="content">
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>© {{ site.time | date: "%Y" }} {{ page.title }}</p>
+  </footer>
+</body>
+</html>
