@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.page_title %}{{ page.page_title }}{% else %}{{ page.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.tagline | default: site.description }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.tagline | default: site.description }}">
+  {% if page.hero_image %}<meta property="og:image" content="https://{{ site.domain }}{{ page.hero_image }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">
+      <span class="nav-mark" aria-hidden="true"></span>
+      Primary Directive
+    </a>
+    <div class="nav-links">
+      <a href="{{ '/#game' | relative_url }}">Game</a>
+      <a href="{{ '/#directors' | relative_url }}">Team</a>
+      <a class="nav-cta" href="{{ '/#signup' | relative_url }}">Mailing list</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">Primary Directive</p>
+      <p class="footer-note">An independent games studio. Made in Canada.</p>
+      <p class="footer-legal">© {{ site.time | date: "%Y" }} Primary Directive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

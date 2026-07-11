@@ -1,43 +1,96 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: base
+---
 
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.tagline }}">
-
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-</head>
-
-<body>
-  <header class="hero">
+<header class="hero">
+  <div class="hero-inner">
     {% if page.hero_image %}
-      <img
-        class="hero-image"
-        src="{{ page.hero_image | relative_url }}"
-        alt=""
-      >
+      <img class="hero-logo" src="{{ page.hero_image | relative_url }}" alt="Primary Directive">
+    {% else %}
+      <h1 class="hero-title">{{ page.title }}</h1>
     {% endif %}
 
-    <div class="hero-content">
-      <h1>{{ page.title }}</h1>
-      <p class="tagline">{{ page.tagline }}</p>
+    {% if page.tagline %}<p class="hero-tagline">{{ page.tagline }}</p>{% endif %}
 
-      {% if page.button_label and page.button_url %}
-        <a class="button" href="{{ page.button_url }}">
-          {{ page.button_label }}
-        </a>
-      {% endif %}
+    <div class="hero-actions">
+      <a class="button" href="{{ '/#signup' | relative_url }}">
+        {{ page.button_label | default: "Join the mailing list" }}
+      </a>
+      <a class="button button-ghost" href="{{ '/#game' | relative_url }}">See the game</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="content">
-    {{ content }}
-  </main>
+<div class="content">
+  {{ content }}
+</div>
 
-  <footer>
-    <p>© {{ site.time | date: "%Y" }} {{ page.title }}</p>
-  </footer>
-</body>
-</html>
+{% if page.game %}
+<section id="game" class="section section-game">
+  <div class="section-inner">
+    <p class="eyebrow">Our first game</p>
+    <div class="game-head">
+      <h2 class="game-title">{{ page.game.name }}</h2>
+      {% if page.game.status %}<span class="badge">{{ page.game.status }}</span>{% endif %}
+    </div>
+    {% if page.game.tagline %}<p class="game-tagline">{{ page.game.tagline }}</p>{% endif %}
+    {% if page.game.description %}<div class="game-desc">{{ page.game.description | markdownify }}</div>{% endif %}
+
+    {% if page.game.platforms %}
+    <div class="chips" aria-label="Platforms">
+      {% for platform in page.game.platforms %}
+        <span class="chip">{{ platform }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if page.game.stores %}
+    <div class="stores">
+      {% for store in page.game.stores %}
+        {% if store.url and store.url != "#" %}
+          <a class="store" href="{{ store.url }}">{{ store.label }}</a>
+        {% else %}
+          <span class="store store-soon">{{ store.label }} <em>soon</em></span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<section id="signup" class="section section-signup">
+  <div class="section-inner">
+    <p class="eyebrow">Stay in the loop</p>
+    <h2 class="signup-title">{{ page.signup_heading | default: "Be first to play." }}</h2>
+    {% if page.signup_text %}<p class="signup-text">{{ page.signup_text }}</p>{% endif %}
+
+    <form class="signup-form" action="{{ page.signup_action }}" method="POST">
+      <input type="hidden" name="_redirect" value="{{ page.signup_redirect }}">
+      <label class="visually-hidden" for="email">Email address</label>
+      <input id="email" class="signup-input" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <button class="button" type="submit">Sign up</button>
+    </form>
+    <p class="signup-fineprint">Unsubscribe anytime, you'll receieve an email when we launch, and the occasional important update.</p>
+  </div>
+</section>
+
+{% if page.directors %}
+<section id="directors" class="section section-directors">
+  <div class="section-inner">
+    <p class="eyebrow">The studio</p>
+    <h2 class="section-title">Three directors, one primary directive.</h2>
+    <ul class="directors">
+      {% for person in page.directors %}
+      <li class="director">
+        <p class="director-name">{{ person.name }}</p>
+        {% if person.role %}<p class="director-role">{{ person.role }}</p>{% endif %}
+        {% if person.url and person.url != "#" %}
+          <a class="director-link" href="{{ person.url }}">Portfolio &rarr;</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

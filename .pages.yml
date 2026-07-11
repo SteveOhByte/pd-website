@@ -31,20 +31,106 @@ content:
         type: text
 
       - name: hero_image
-        label: Main image
+        label: Logo / hero image
         type: image
 
       - name: button_label
-        label: Button text
+        label: Hero button text
         type: string
 
-      - name: button_url
-        label: Button destination
+      - name: signup_heading
+        label: Signup heading
         type: string
-        description: Use a web address, mailto link, or another page.
+
+      - name: signup_text
+        label: Signup blurb
+        type: text
+
+      - name: signup_action
+        label: Signup form endpoint (URL)
+        type: string
+        description: The form POST target.
+
+      - name: signup_redirect
+        label: After-signup redirect (URL)
+        type: string
+        description: Where subscribers land after signing up (the thank-you page).
+
+      - name: game
+        label: Featured game
+        type: object
+        fields:
+          - name: name
+            label: Game name
+            type: string
+          - name: status
+            label: Status badge
+            type: string
+            description: e.g. "Coming soon", "In development", "Out now".
+          - name: tagline
+            label: Game tagline
+            type: text
+          - name: description
+            label: Game description
+            type: text
+          - name: platforms
+            label: Platforms
+            type: string
+            list: true
+          - name: stores
+            label: Store links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Store name
+                type: string
+              - name: url
+                label: URL (use # if not live yet)
+                type: string
+
+      - name: directors
+        label: Directors
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: role
+            label: Role
+            type: string
+          - name: url
+            label: Portfolio / Linktree URL (use # if none)
+            type: string
 
       - name: body
-        label: Main content
+        label: Intro paragraph
+        type: rich-text
+        options:
+          format: markdown
+          switcher: false
+
+  - name: thankyou
+    label: Thank-you page
+    type: file
+    path: thank-you.md
+    format: yaml-frontmatter
+    fields:
+      - name: layout
+        type: string
+        hidden: true
+      - name: permalink
+        type: string
+        hidden: true
+      - name: title
+        label: Heading
+        type: string
+      - name: page_title
+        label: Browser tab title
+        type: string
+      - name: body
+        label: Message
         type: rich-text
         options:
           format: markdown
