@@ -1,0 +1,51 @@
+media:
+  input: media
+  output: /media
+  rename: safe
+  categories:
+    - image
+
+settings:
+  content:
+    merge: true
+
+content:
+  - name: home
+    label: Home page
+    type: file
+    path: index.md
+    format: yaml-frontmatter
+
+    fields:
+      - name: layout
+        type: string
+        hidden: true
+
+      - name: title
+        label: Site title
+        type: string
+        required: true
+
+      - name: tagline
+        label: Tagline
+        type: text
+
+      - name: hero_image
+        label: Main image
+        type: image
+
+      - name: button_label
+        label: Button text
+        type: string
+
+      - name: button_url
+        label: Button destination
+        type: string
+        description: Use a web address, mailto link, or another page.
+
+      - name: body
+        label: Main content
+        type: rich-text
+        options:
+          format: markdown
+          switcher: false
