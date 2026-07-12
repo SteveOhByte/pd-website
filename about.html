@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Primary Directive</title>
+  <meta name="description"
+    content="Primary Directive is three directors and zero hierarchy — a new indie game studio from Canada.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap head-in">
+      <a class="brand" href="index.html">
+        <img src="assets/pd-mark.png" alt="" width="34" height="30">
+        <span>PRIMARY_DIRECTIVE</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">./home</a></li>
+          <li><a href="games.html">./games</a></li>
+          <li><a href="about.html" aria-current="page">./about</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="section about-hero" aria-labelledby="about-title">
+      <div class="wrap" data-reveal>
+        <p class="path">~/about</p>
+        <h1 id="about-title">
+          three directors walk into a studio.<br>
+          <span class="ghost">joke_half_secondary loading...</span>
+        </h1>
+        <p class="intro">
+          Primary Directive is a new indie studio from Canada. We are three people,
+          and we like games! Letter Relay is the first one we're letting out. Stay tuned!
+        </p>
+      </div>
+    </section>
+
+    <!-- Personnel -->
+    <section class="section" aria-labelledby="files-title">
+      <div class="wrap" data-reveal>
+        <p class="tag tag--quiet" id="files-title" style="margin-bottom: 26px;">[ PERSONNEL_FILES ]</p>
+        <ul class="roster">
+          <li class="person">
+            <span class="index" aria-hidden="true">/01</span>
+            <span class="name">Nathan Fan</span>
+            <span class="role">director</span>
+            <a class="btn btn--ghost" href="#">open_profile →<span class="sr-only"> (Nathan Fan)</span></a>
+          </li>
+          <li class="person">
+            <span class="index" aria-hidden="true">/02</span>
+            <span class="name">Stephen Merriam</span>
+            <span class="role">director</span>
+            <a class="btn btn--ghost" href="#">open_profile →<span class="sr-only"> (Stephen Merriam)</span></a>
+          </li>
+          <li class="person">
+            <span class="index" aria-hidden="true">/03</span>
+            <span class="name">Nathan Ludberg</span>
+            <span class="role">director</span>
+            <a class="btn btn--ghost" href="#">open_profile →<span class="sr-only"> (Nathan Ludberg)</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact + signup -->
+    <section class="section" aria-labelledby="contact-title">
+      <div class="wrap split" data-reveal>
+        <div>
+          <p class="tag" id="contact-title" style="margin-bottom: 20px;">[ CONTACT ]</p>
+          <dl class="contact-list">
+            <dt>general:</dt>
+            <dd><a href="mailto:admin@primarydirective.studio">admin@primarydirective.studio</a></dd>
+          </dl>
+        </div>
+        <div class="signup">
+          <h2>subscribe --channel=launch</h2>
+          <p class="note">// transmission at launch.</p>
+          <form class="signup-form" method="POST" action="https://api.winterlude.dev/f/85d8e577">
+            <label class="sr-only" for="email-about">Email address</label>
+            <input type="email" id="email-about" name="email" placeholder="you@example.com" required
+              autocomplete="email">
+            <button class="btn btn--primary" type="submit">[ EXECUTE ]</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-in">
+      <span>© <span data-year>2026</span> Primary Directive</span>
+      <span>compiled in canada</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

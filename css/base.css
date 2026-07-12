@@ -1,0 +1,212 @@
+/* ==========================================================================
+   base.css — design tokens, reset, typography, layout primitives, a11y
+   Primary Directive · primarydirective site
+   ========================================================================== */
+
+/* ---- Design tokens ------------------------------------------------------ */
+
+:root {
+  color-scheme: dark;
+
+  /* color */
+  --bg:          #0a0a0b;
+  --bg-raised:   #121214;
+  --bg-stripe-a: #121214;
+  --bg-stripe-b: #0d0d0f;
+
+  --ink:         #edeae4;                    /* primary text            */
+  --ink-soft:    rgba(237, 234, 228, 0.72);  /* body / secondary text   */
+  --ink-dim:     rgba(237, 234, 228, 0.60);  /* meta text (large only)  */
+  --line:        rgba(237, 234, 228, 0.14);  /* hairline borders        */
+  --line-strong: rgba(237, 234, 228, 0.28);
+
+  --accent:        #ef3b12;  /* brand red — large text, fills, borders   */
+  --accent-bright: #ff6540;  /* brighter red — small text links          */
+
+  --key-ink: #4e4033;        /* letter color on keycap art               */
+
+  /* type */
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* spacing / layout */
+  --wrap-max: 1180px;
+  --pad-x: clamp(20px, 4vw, 40px);
+  --section-y: clamp(44px, 7vw, 72px);
+}
+
+/* ---- Reset --------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, p, ul, ol, figure {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Typography ---------------------------------------------------------- */
+
+h1 {
+  font-size: clamp(30px, 5vw, 56px);
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.muted   { color: var(--ink-soft); }
+.dim     { color: var(--ink-dim); }
+.accent  { color: var(--accent); }
+
+/* section label, e.g. “[ RELEASE_001 ]” */
+.tag {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--accent-bright);
+}
+
+.tag--quiet {
+  color: var(--ink-dim);
+}
+
+/* comment-style asides, e.g. “// one transmission at launch” */
+.note {
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+
+/* ---- Links ---------------------------------------------------------------- */
+
+a {
+  color: var(--accent-bright);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-bright);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ---- Layout primitives ----------------------------------------------------- */
+
+.wrap {
+  max-width: var(--wrap-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+.section {
+  padding-block: var(--section-y);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 28px;
+}
+
+/* two-column split that stacks on small screens */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 820px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* definition-style spec list: “stores: … / platforms: …” */
+.spec {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 18px;
+  font-size: 14px;
+}
+
+.spec dt {
+  color: var(--ink-dim);
+}
+
+.spec dd {
+  margin: 0;
+}
+
+/* ---- Accessibility helpers -------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 100;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 16px;
+  font-size: 13px;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: #fff;
+  text-decoration: none;
+}

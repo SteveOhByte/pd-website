@@ -1,0 +1,53 @@
+/* ==========================================================================
+   about.css — page-specific styles for about.html
+   ========================================================================== */
+
+.about-hero {
+  padding-block: clamp(56px, 9vw, 76px);
+}
+
+.about-hero .path {
+  font-size: 13px;
+  color: var(--ink-dim);
+  margin-bottom: 20px;
+}
+
+.about-hero h1 {
+  font-size: clamp(26px, 4vw, 44px);
+  max-width: 860px;
+}
+
+.about-hero h1 .ghost {
+  color: var(--ink-dim);
+}
+
+.about-hero .intro {
+  max-width: 620px;
+  margin-top: 32px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* contact block */
+.contact-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 18px;
+  font-size: 14px;
+}
+
+.contact-list dt {
+  color: var(--ink-dim);
+}
+
+.contact-list dd {
+  margin: 0;
+}
+
+.contact-list a {
+  color: var(--ink);
+}
+
+.contact-list a:hover {
+  color: var(--accent-bright);
+}

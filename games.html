@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letter Relay — Primary Directive</title>
+  <meta name="description"
+    content="Letter Relay: a word-chain scoring game from Primary Directive. One alphabet, every word starts where the last one ended. Coming soon to Steam, itch.io, Microsoft Store and Amazon Appstore.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/games.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap head-in">
+      <a class="brand" href="index.html">
+        <img src="assets/pd-mark.png" alt="" width="34" height="30">
+        <span>PRIMARY_DIRECTIVE</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">./home</a></li>
+          <li><a href="games.html" aria-current="page">./games</a></li>
+          <li><a href="about.html">./about</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="section lr-hero" aria-labelledby="lr-title">
+      <div class="wrap" data-reveal>
+        <p class="path">~/games/letter_relay</p>
+        <h1 id="lr-title" class="sr-only">Letter Relay</h1>
+        <img class="lr-title" src="assets/lr-title.png" alt="" width="520">
+        <p class="tagline">One alphabet. Every word starts where the last one ended. Spent letters stay spent.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#signup">[ GET_LAUNCH_EMAIL ]</a>
+          <a class="btn btn--ghost" href="#">wishlist_on_steam</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The board -->
+    <section class="section" aria-labelledby="board-title">
+      <div class="wrap" data-reveal>
+        <p class="tag" id="board-title">[ THE_BOARD ]</p>
+        <p class="note" style="margin: 10px 0 36px;">// your keyboard is the battlefield. spent starting letters burn
+          out as you go.</p>
+
+        <p class="sr-only">Illustration: an on-screen keyboard from the game. Some keys are red, meaning that starting
+          letter has already been spent; one key is blue, meaning the next word must start with it.</p>
+        <div class="board" aria-hidden="true">
+          <div class="row">
+            <span class="key"><img src="assets/key-top.png" alt=""><b>Q</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>W</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>E</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>R</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>T</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>Y</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>U</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>I</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>O</b></span>
+            <span class="key"><img src="assets/key-top.png" alt=""><b>P</b></span>
+          </div>
+          <div class="row">
+            <span class="key"><img src="assets/key-mid.png" alt=""><b>A</b></span>
+            <span class="key"><img src="assets/key-red.png" alt=""><b>S</b></span>
+            <span class="key"><img src="assets/key-blue.png" alt=""><b>D</b></span>
+            <span class="key"><img src="assets/key-mid.png" alt=""><b>F</b></span>
+            <span class="key"><img src="assets/key-red.png" alt=""><b>G</b></span>
+            <span class="key"><img src="assets/key-mid.png" alt=""><b>H</b></span>
+            <span class="key"><img src="assets/key-mid.png" alt=""><b>J</b></span>
+            <span class="key"><img src="assets/key-mid.png" alt=""><b>K</b></span>
+            <span class="key"><img src="assets/key-red.png" alt=""><b>L</b></span>
+          </div>
+          <div class="row">
+            <span class="key"><img src="assets/key-low.png" alt=""><b>Z</b></span>
+            <span class="key"><img src="assets/key-low.png" alt=""><b>X</b></span>
+            <span class="key"><img src="assets/key-low.png" alt=""><b>C</b></span>
+            <span class="key"><img src="assets/key-low.png" alt=""><b>V</b></span>
+            <span class="key"><img src="assets/key-low.png" alt=""><b>B</b></span>
+            <span class="key"><img src="assets/key-low.png" alt=""><b>N</b></span>
+            <span class="key"><img src="assets/key-low.png" alt=""><b>M</b></span>
+            <span class="key key--wide"><img src="assets/key-wide.png" alt=""><b>ENTER</b></span>
+          </div>
+        </div>
+
+        <div class="board-legend" aria-hidden="true">
+          <span><img src="assets/key-blue.png" alt="">= your next word starts here</span>
+          <span><img src="assets/key-red.png" alt="">= starting letter already spent</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rules + modes -->
+    <section class="section" aria-labelledby="rules-title">
+      <div class="wrap split" data-reveal>
+        <div>
+          <p class="tag" id="rules-title" style="margin-bottom: 24px;">[ HOW_TO_PLAY ]</p>
+          <div class="rules-list">
+            <p><span class="k">rule_01</span> — write a word. any word.</p>
+            <p><span class="k">rule_02</span> — your next word must begin with the last letter of the previous one.</p>
+            <p><span class="k">rule_03</span> — no two words may begin with the same letter.</p>
+            <p><span class="k">goal</span> — use as much of the alphabet as you can before you run out of moves.</p>
+          </div>
+          <div class="scoring">
+            <p class="note">// scoring</p>
+            <p class="formula">Score = (t / n)<sup>L</sup></p>
+            <p class="legend">t = 26 · n = letters remaining · L = word length<br>longer words, later in the run, score
+              exponentially more.</p>
+          </div>
+        </div>
+        <div>
+          <p class="tag" style="margin-bottom: 20px;">[ GAME_MODES ]</p>
+          <div class="modes">
+            <div class="panel">
+              <h3>CLASSIC</h3>
+              <p>no clock. just you, one alphabet, and a slowly closing door.</p>
+            </div>
+            <div class="panel">
+              <h3>FIXED_LENGTH</h3>
+              <p>every word must be exactly five letters. simple rule, cruel consequences.</p>
+            </div>
+            <div class="panel">
+              <h3>SPEED <span class="accent" style="font-size: 12px;">— with combos</span></h3>
+              <p>5–10 minutes on the clock, your call. rare words and long chains feed the multiplier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Captures -->
+    <section class="section" aria-label="Gameplay captures">
+      <div class="wrap" data-reveal>
+        <div class="capture-strip">
+          <div class="capture" role="img" aria-label="Gameplay capture: classic mode"><span><img src="assets/classic-mode.png" alt="Classic mode gameplay"></span></div>
+          <div class="capture" role="img" aria-label="Gameplay capture: speed mode"><span><img src="assets/speed-mode.png" alt="Speed mode gameplay"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Availability + signup -->
+    <section class="section" id="signup" aria-labelledby="avail-title">
+      <div class="wrap split" data-reveal>
+        <div>
+          <p class="tag tag--quiet" id="avail-title" style="margin-bottom: 20px;">[ AVAILABILITY ]</p>
+          <dl class="spec">
+            <dt>stores:</dt>
+            <dd>steam / itch.io / microsoft store / amazon appstore</dd>
+            <dt>platforms:</dt>
+            <dd>windows / mac / linux / web / android</dd>
+            <dt>price:</dt>
+            <dd>tbd</dd>
+            <dt>eta:</dt>
+            <dd class="accent">soon™</dd>
+          </dl>
+        </div>
+        <div class="signup">
+          <h2>subscribe --channel=launch</h2>
+          <p class="note">// transmission at launch.</p>
+          <form class="signup-form" method="POST" action="https://api.winterlude.dev/f/85d8e577">
+            <label class="sr-only" for="email-games">Email address</label>
+            <input type="email" id="email-games" name="email" placeholder="you@example.com" required
+              autocomplete="email">
+            <button class="btn btn--primary" type="submit">[ EXECUTE ]</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-in">
+      <span>© <span data-year>2026</span> Primary Directive</span>
+      <span>compiled in canada</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

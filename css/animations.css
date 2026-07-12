@@ -1,0 +1,108 @@
+/* ==========================================================================
+   animations.css — juice. All motion is opt-out via prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---- Blinking terminal cursor ---------------------------------------------- */
+
+.cursor {
+  display: inline-block;
+  width: 9px;
+  height: 18px;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 6px;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ---- Hover / press micro-interactions --------------------------------------- */
+
+.btn {
+  transition: transform 130ms ease, background-color 130ms ease,
+              border-color 130ms ease, box-shadow 130ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary:hover {
+  background: #ff4a1e;
+  box-shadow: 0 4px 18px rgba(239, 59, 18, 0.35);
+}
+
+.person,
+.panel {
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.person:hover,
+.panel:hover {
+  border-color: var(--line-strong);
+}
+
+/* keycaps get a tiny press on hover — playful, not busy */
+.key img {
+  transition: transform 120ms ease;
+}
+
+.key:hover img {
+  transform: translateY(2px);
+}
+
+/* nav underline sweep */
+.nav-list a {
+  background: linear-gradient(currentColor, currentColor) bottom left / 0% 1px no-repeat;
+  transition: background-size 180ms ease, color 130ms ease;
+}
+
+.nav-list a:hover {
+  background-size: 100% 1px;
+}
+
+/* ---- Scroll-in reveal --------------------------------------------------------- */
+/* Only applies once JS adds .js to <html>; without JS everything is visible.   */
+
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 550ms ease, transform 550ms ease;
+}
+
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* stagger siblings inside a revealed group */
+html.js [data-reveal].is-in > * {
+  animation: none;
+}
+
+/* ---- Reduced motion: switch everything off ------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cursor {
+    animation: none;
+  }
+}
